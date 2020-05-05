@@ -2,9 +2,13 @@
 name = "chinese_segmenter"
 version = "0.1.0"
 authors = ["Preston Wang-Stosur-Bassett <p.wanstobas@gmail.com>"]
+description = "Tokenize Chinese sentences using a dictionary-driven largest first matching approach."
+repository = "https://github.com/sotch-pr35mac/chinese_segmenter"
+readme = "README.md"
+keywords = ["chinese", "simplified", "traditional", "hanzi", "segment", "tokenize"]
+categories = ["text-processing", "localization", "internationalization", "value-formatting"]
+license = "MIT"
 edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 bincode = "1.2.1"
