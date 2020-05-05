@@ -31,7 +31,7 @@ impl Segmenter {
 		let default_take = if raw.len() < 20 { raw.len() } else { 20 };
 		let mut skip = 0;
 		let mut take = default_take;
-		let dictionary = if self.converter.is_traditional(raw.to_string()) { &self.traditional } else { &self.simplified };
+		let dictionary = if self.converter.is_simplified(raw.to_string()) { &self.simplified } else { &self.traditional };
 
 		while skip < raw.chars().count() {
 			let substring: String = raw.chars().skip(skip).take(take).collect();

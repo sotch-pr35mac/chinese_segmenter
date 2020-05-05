@@ -24,7 +24,7 @@ dependencies = [
 
 [[package]]
 name = "chinese_segmenter"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "bincode 1.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "character_converter 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
