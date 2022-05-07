@@ -1,6 +1,6 @@
 [package]
 name = "chinese_segmenter"
-version = "0.1.2"
+version = "1.0.0"
 authors = ["Preston Wang-Stosur-Bassett <p.wanstobas@gmail.com>"]
 description = "Tokenize Chinese sentences using a dictionary-driven largest first matching approach."
 repository = "https://github.com/sotch-pr35mac/chinese_segmenter"
@@ -11,5 +11,4 @@ license = "MIT"
 edition = "2018"
 
 [dependencies]
-bincode = "1.2.1"
-character_converter = "0.1.0"
+character_converter = "2.1.0"
