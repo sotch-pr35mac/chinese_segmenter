@@ -11,29 +11,31 @@
 //! ```rust
 //! extern crate chinese_segmenter;
 //!
-//! use chinese_segmenter::ChineseSegmenter;
+//! use chinese_segmenter::{initialize, tokenize};
 //!
-//! let segmenter = ChineseSegmenter::new();
-//! let sentence: String = String::from("今天晚上想吃羊肉吗？");
-//! let result: Vec<String> = segmenter.tokenize(sentence);
+//! let sentence = "今天晚上想吃羊肉吗？";
+//! initialize(); // Optional initialization to load data
+//! let result: Vec<&str> = tokenize(sentence);
 //! println!("{:?}", result); // --> ['今天', '晚上', '想', '吃', '羊肉', '吗']
 
-extern crate bincode;
 extern crate character_converter;
 
-mod chinese_segmenter;
-pub use self::chinese_segmenter::Segmenter as ChineseSegmenter;
+pub fn initialize() {
+	character_converter::init()
+}
+pub fn tokenize(raw: &str) -> Vec<&str> {
+	character_converter::tokenize(raw)
+}
 
 #[cfg(test)]
 mod tests {
 	use super::*;
 
 	#[test]
-	fn tokenize() {
-		let segmenter = ChineseSegmenter::new();
-		let sentence: String = String::from("今天晚上想吃羊肉吗？");
-		let result: Vec<String> = segmenter.tokenize(sentence);
-		let expected: Vec<String> = vec!["今天".to_string(), "晚上".to_string(), "想".to_string(), "吃".to_string(), "羊肉".to_string(), "吗".to_string()];
+	fn test_tokenize() {
+		let sentence = "今天晚上想吃羊肉吗？";
+		let result = tokenize(sentence);
+		let expected = vec!["今天", "晚上", "想", "吃", "羊肉", "吗"];
 		assert_eq!(expected, result);
 	}
 }

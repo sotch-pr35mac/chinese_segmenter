@@ -1,5 +1,5 @@
 # segmenter
-##### v0.1.2
+##### v1.0.0
 ---
 
 ### About
@@ -9,12 +9,11 @@ Segment Chinese sentences into component words using a dictionary-driven largest
 ```rust
 extern crate chinese_segmenter;
 
-use chinese_segmenter::ChineseSegmenter;
+use chinese_segmenter::{initialize, tokenize};
 
-let segmenter = ChineseSegmenter::new();
-
-let sentence: String = String::from("今天晚上想吃羊肉吗？");
-let result: Vec<String> = segmenter.tokenize(sentence);
+let sentence = "今天晚上想吃羊肉吗？";
+initialize(); // Optional intialization to load data
+let result: Vec<&str> = tokenize(sentence);
 println!("{:?}", result); // --> ['今天', '晚上', '想', '吃', '羊肉', '吗']
 ```
 
